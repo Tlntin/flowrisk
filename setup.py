@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 #
-# Created by Xixuan on Nov 22, 2018
+# Created by Qiaoxiaofeng on Nov 22, 2019
 #
 
 import setuptools
@@ -10,13 +10,13 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name='flowrisk',
-    version='0.2.2',
+    version='0.2.3',
     description='Order flow risk measures in Python',
     long_description=long_description,
     long_description_content_type="text/markdown",
     url='https://github.com/hanxixuana/flowrisk',
-    author='Xixuan Han',
-    author_email='xixuanhan@gmail.com',
+    author='Joe Andy',
+    author_email='andyjoe318@gmail.com',
     license='MIT',
     packages=setuptools.find_packages(),
     install_requires=[
@@ -24,7 +24,7 @@ setuptools.setup(
     ],
     zip_safe=True,
     classifiers=[
-        "Programming Language :: Python :: 2.7",
+        "Programming Language :: Python :: 3.6",
         "License :: OSI Approved :: MIT License",
         "Operating System :: OS Independent",
     ],

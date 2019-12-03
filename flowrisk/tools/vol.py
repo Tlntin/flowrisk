@@ -3,6 +3,7 @@
 #   Created by Xixuan on Nov 20, 2018
 #
 
+from functools import reduce
 import numpy as np
 
 from abc import ABCMeta, abstractmethod

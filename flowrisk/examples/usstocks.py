@@ -21,7 +21,7 @@ class DataLoader(object):
         Return the symbols.
         :rtype:     list
         """
-        return self.FILE_MAPPER.keys()
+        return list(self.FILE_MAPPER)
 
     def load_data(self, symbol):
         """
@@ -73,12 +73,8 @@ class USStocks(object):
 
         self.us_small_cap_data_loader = USSmallCapsDataLoader()
         self.us_large_cap_data_loader = USLargeCapsDataLoader()
-
-        self.all_available_symbols = (
-                self.us_large_cap_data_loader.list_symbols()
-                +
-                self.us_small_cap_data_loader.list_symbols()
-        )
+        self.all_available_symbols = (self.us_large_cap_data_loader.list_symbols() +
+                                    self.us_small_cap_data_loader.list_symbols())
 
         self.data = None
         self.vpins_and_conf_intervals = None
