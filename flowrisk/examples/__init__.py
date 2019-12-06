@@ -4,3 +4,5 @@
 #
 
 from .usstocks import USStocks
+
+from .coins import Coins
