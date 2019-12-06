@@ -2,12 +2,12 @@
 
 Currently, the packages only has VPIN.
 
+Note:
+# This repo has upgraded to Python3.
+
 ## Installation
-The default way is to open a console and execute
 
-    pip install flowrisk
-
-One may also download from here and manually install
+download from here and manually install
 
     git clone https://github.com/hanxixuana/flowrisk
     cd flowrisk
