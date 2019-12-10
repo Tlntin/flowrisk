@@ -33,13 +33,13 @@ class DataLoader(object):
             'symbol should be one of %s' % ', '.join(self.FILE_MAPPER.keys())
         data_path = self.FILE_MAPPER[symbol]
         data = pd.read_csv(data_path, sep=',')
-        data[['date']]=data[['date']].apply(pd.to_datetime, unit='s')
+        data[['timestamp']]=data[['timestamp']].apply(pd.to_datetime, unit='s')
         return data
 
 class CoinDataLoader(DataLoader):
 
     FILE_MAPPER = {
-        'BTC': os.path.join(os.path.dirname(__file__), 'data', 'huobi_future-BTC-2019-09-15-2019-09-25.csv')
+        'BTC': os.path.join(os.path.dirname(__file__), 'data', 'candles-2019-12-04-2019-12-05-huobif.csv')
     }
 
 
@@ -51,7 +51,7 @@ class Coins(object):
         """
         self.config = config
 
-        self.config.TIME_BAR_TIME_STAMP_COL_NAME = 'date'
+        self.config.TIME_BAR_TIME_STAMP_COL_NAME = 'timestamp'
         self.config.TIME_BAR_PRICE_COL_NAME = 'close'
         self.config.TIME_BAR_VOLUME_COL_NAME = 'volume'
 
@@ -98,13 +98,11 @@ class Coins(object):
         """
         assert self.data is not None and self.vpins_and_conf_intervals is not None, \
             'has not estimated VPINs and confidence intervals for any symbols'
-
         ax1 = self.vpin_estimator.plot()
         ax1.locator_params(axis='x', nbins=10)
 
         ax2 = ax1.figure.add_subplot(111, sharex=ax1, frameon=False)
-
-        scaled_volumes = self.data.loc[:, ['date', self.config.TIME_BAR_VOLUME_COL_NAME]]
+        scaled_volumes = self.data.loc[:, [self.config.TIME_BAR_TIME_STAMP_COL_NAME, self.config.TIME_BAR_VOLUME_COL_NAME]]
         scaled_volumes.loc[:, self.config.TIME_BAR_VOLUME_COL_NAME] -= (
             scaled_volumes.loc[:, self.config.TIME_BAR_VOLUME_COL_NAME].min()
         )
@@ -117,7 +115,7 @@ class Coins(object):
         scaled_volumes.loc[:, self.config.TIME_BAR_VOLUME_COL_NAME] += price_min
 
         scaled_volumes.plot(
-            x='date',
+            x=self.config.TIME_BAR_TIME_STAMP_COL_NAME,
             y=self.config.TIME_BAR_VOLUME_COL_NAME,
             kind='bar',
             color='gray',
@@ -127,7 +125,7 @@ class Coins(object):
         ax2.locator_params(axis='x', nbins=10)
 
         self.data.plot(
-            x='date',
+            x=self.config.TIME_BAR_TIME_STAMP_COL_NAME,
             y=self.config.TIME_BAR_PRICE_COL_NAME,
             ax=ax2,
             style='k-.',

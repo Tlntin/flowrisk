@@ -44,7 +44,7 @@ class RecursiveVPINConfig(Config):
     BUCKET_MAX_VOLUME = 100000.0
     BUCKETS = RecursiveBulkClassMABuckets
 
-    TIME_BAR_TIME_STAMP_COL_NAME = 'time'
+    TIME_BAR_TIME_STAMP_COL_NAME = 'timestamp'
     TIME_BAR_PRICE_COL_NAME = 'price'
     TIME_BAR_VOLUME_COL_NAME = 'volume'
 
@@ -367,34 +367,34 @@ class BulkConfVPIN(BulkVPIN):
         assert self.vpins is not None, \
             'Has not estimated VPIN values yet'
         ax = self.vpins.plot(
-            x='date',
+            x=self.config.TIME_BAR_TIME_STAMP_COL_NAME,
             y='vpin',
             style='b',
             title=(
                     '%sVPIN from %s to %s' %
                     (
                         self.config.SYMBOL + ' ' if len(self.config.SYMBOL) else self.config.SYMBOL,
-                        self.vpins['date'].values[0],
-                        self.vpins['date'].values[-1]
+                        self.vpins[self.config.TIME_BAR_TIME_STAMP_COL_NAME].values[0],
+                        self.vpins[self.config.TIME_BAR_TIME_STAMP_COL_NAME].values[-1]
                     )
             ),
             figsize=[12, 6.75]
         )
         self.vpins.plot(
-            x='date',
+            x=self.config.TIME_BAR_TIME_STAMP_COL_NAME,
             y='vpin_mean',
             ax=ax,
             style='r',
             lw=2.0
         )
         self.vpins.plot(
-            x='date',
+            x=self.config.TIME_BAR_TIME_STAMP_COL_NAME,
             y='vpin_lower_band',
             ax=ax,
             style='g--',
         )
         self.vpins.plot(
-            x='date',
+            x=self.config.TIME_BAR_TIME_STAMP_COL_NAME,
             y='vpin_upper_band',
             ax=ax,
             style='g--',
