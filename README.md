@@ -64,6 +64,6 @@ For example,
 
 We made the differences because the core of our package is a recursive estimator of VPIN.
 
-# thanks
+# References
     * HuZhiwei https://github.com/HuLaTown/vpin
     * 火量学派第5期：VPIN 在高波动市场中的应用（附完整报告PDF) https://www.jinse.com/news/blockchain/345430.html
