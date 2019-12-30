@@ -64,6 +64,10 @@ For example,
 
 We made the differences because the core of our package is a recursive estimator of VPIN.
 
+# Attentions
+   * VPIN signal has been tested in BTC future of hbdm(www.hbdm.com).This signal can be used to calculate
+   the signal in time.
+
 # References
     * HuZhiwei https://github.com/HuLaTown/vpin
     * 火量学派第5期：VPIN 在高波动市场中的应用（附完整报告PDF) https://www.jinse.com/news/blockchain/345430.html
