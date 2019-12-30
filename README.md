@@ -9,7 +9,7 @@ Note:
 
 download from here and manually install
 
-    git clone https://github.com/hanxixuana/flowrisk
+    git clone https://github.com/foonsun/flowrisk.git
     cd flowrisk
     python setup.py install
 
@@ -62,4 +62,8 @@ For example,
         volatility; and
     2.  VPINs are calculated from the very beginning, instead of after a certain number of buckets have been filled.
 
-We made the differences because the core of our package is a recursive estimator of VPIN.  
+We made the differences because the core of our package is a recursive estimator of VPIN.  \
+
+#thanks
+    * HuZhiwei https://github.com/HuLaTown/vpin
+    * 火量学派第5期：VPIN 在高波动市场中的应用（附完整报告PDF) https://www.jinse.com/news/blockchain/345430.html
