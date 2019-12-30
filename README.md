@@ -62,7 +62,7 @@ For example,
         volatility; and
     2.  VPINs are calculated from the very beginning, instead of after a certain number of buckets have been filled.
 
-We made the differences because the core of our package is a recursive estimator of VPIN.  \
+We made the differences because the core of our package is a recursive estimator of VPIN.
 
 # thanks
     * HuZhiwei https://github.com/HuLaTown/vpin
